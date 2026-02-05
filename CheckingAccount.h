@@ -1,6 +1,5 @@
 // File: CheckingAccount.h
 // Author: Emma Bernstein
-// Description: Derived class for checking accounts
 
 #ifndef ADV3LAB01_02_CHECKINGACCOUNT_H
 #define ADV3LAB01_02_CHECKINGACCOUNT_H
@@ -13,10 +12,9 @@ private:
     double checkCharge;
 
 public:
+    //constructor
     CheckingAccount(int idNum, double balance, double minBal, double checkCharge);
-
     double monthlyInterest() override;
 };
-
 
 #endif //ADV3LAB01_02_CHECKINGACCOUNT_H

@@ -1,7 +1,5 @@
-// File: Bank.cpp
+// File: Bank.h
 // Author: Emma Bernstein
-// Description: Implementation of Bank class methods
-
 #ifndef ADV3LAB01_02_BANK_H
 #define ADV3LAB01_02_BANK_H
 #include <vector>
@@ -9,19 +7,23 @@
 
 class Bank {
 private:
+    //stores pointers to account objects
     std::vector<Account*> accounts;
 
 public:
     Bank();
     ~Bank();
 
+    // adds a new account to the bank
     void addAccount(Account* account);
 
+    //applies monthly interest to all accounts
     void postMonthlyInterest();
 
     bool deposit(int id, double amount);
     bool withdraw(int id, double amount);
 
+    //displays all accounts
     void displayAccounts() const;
 };
 

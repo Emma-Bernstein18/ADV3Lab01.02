@@ -1,13 +1,13 @@
-// File: Bank.h
+// File: Bank.cpp
 // Author: Emma Bernstein
-// Description: Bank class that manages multiple accounts and applies monthly interest
+// Description: Implementation of Bank class methods
 
 #include "Bank.h"
-
 #include <iostream>
 
 using namespace std;
 
+//default constructor
 Bank::Bank() {}
 
 Bank::~Bank() {
@@ -16,10 +16,12 @@ Bank::~Bank() {
     }
 }
 
+//adds an account to the bank
 void Bank::addAccount(Account* account) {
     accounts.push_back(account);
 }
 
+//applies monthly interest to all accounts
 void Bank::postMonthlyInterest() {
     for (Account* acc : accounts) {
         double interest = acc->monthlyInterest();
@@ -27,6 +29,7 @@ void Bank::postMonthlyInterest() {
     }
 }
 
+//deposits money into an account
 bool Bank::deposit(int id, double amount) {
     for (Account* acc : accounts) {
         if (acc->getId() == id) {
@@ -37,6 +40,7 @@ bool Bank::deposit(int id, double amount) {
     return false;
 }
 
+//withdraws money from an account
 bool Bank::withdraw(int id, double amount) {
     for (Account* acc : accounts) {
         if (acc->getId() == id) {
@@ -47,6 +51,7 @@ bool Bank::withdraw(int id, double amount) {
     return false;
 }
 
+//displays all accounts and their balances
 void Bank::displayAccounts() const {
     for (Account* acc : accounts) {
         cout << "Account ID: " << acc->getId()
